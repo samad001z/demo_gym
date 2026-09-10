@@ -1,26 +1,230 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   The Fitness Edge - design tokens
+
+   PALETTE RATIONALE (evidence-led, see README for citations)
+
+   The accent is a long-wavelength red-orange because perception of red
+   measurably increases the force and velocity of motor output (Elliot &
+   Aarts, 2011, Emotion). Red also carries an attentional advantage and
+   raises appraisals of dominance (Elliot, 2015 review).
+
+   The same literature carries the constraint that decides the whole system:
+   sustained red in an achievement context produces AVOIDANCE motivation and
+   measurably degrades performance on cognitive tasks (Elliot et al., 2007).
+   So red is a trigger, not a room. `ember` appears only at moments of
+   physical commitment - primary CTAs, the active branch, the effort marker -
+   and never as an ambient wash. It is well under 5% of the pixels on screen.
+
+   The field is a low-arousal near-black so the ember spike registers by
+   contrast (short vs long wavelength arousal, Elliot 2015). `steel` is the
+   one other hue, used ONLY on credential and verification markers, because
+   blue raises trustworthiness appraisals (Labrecque & Milne, 2012) and
+   subjective alertness (Chellappa et al., 2011). It is semantic, never
+   decorative.
+
+   Deliberately NOT claimed: the Frank & Gilovich (1988) black-uniform
+   aggression effect. It failed to replicate on expanded data (Goldschmied,
+   Raphaeli & Furley, 2026), so the dark ground is justified by arousal
+   contrast and legibility, not by that finding.
+
+   Theme is LOCKED dark. Radius is LOCKED to 4px on every surface.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* ground and surfaces: low arousal, lets the accent spike */
+  --color-void: #0b0b0d;
+  --color-carbon: #131316;
+  --color-slab: #1a1a1e;
+  --color-seam: #2a2a30;
+  --color-seam-2: #38383f;
+
+  /* type: warm off-white, never pure */
+  --color-bone: #f6f5f3; /* 18.1:1 on void */
+  --color-smoke: #a3a3ac; /*  7.9:1 on void */
+  --color-ash: #82828c; /*  5.2:1 on void, 4.6:1 on slab */
+
+  /* action accent - reserved for commitment moments only */
+  --color-ember: #ff4a18; /*  5.9:1 with void text on it */
+  --color-ember-lift: #ff6238; /* hover HEATS UP, so dark text stays at 6.6:1 */
+
+  /* credential accent - semantic only, never decorative */
+  --color-steel: #7fa8d9; /*  8.0:1 on void */
+
+  --font-display: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-barlow), system-ui, sans-serif;
+
+  --radius-edge: 4px;
+
+  /* Motion tokens. Curves are taken as-is from the animate skill's table,
+     not approximated. Every animation on the site uses one of these. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  color: var(--color-ember);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: var(--color-void);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Hero line reveal.
+
+   Deliberately a CSS animation rather than Motion: this fires during initial
+   page load, when the main thread is busy hydrating and decoding the hero
+   image. CSS animations run off the main thread and hold 60fps through that;
+   a JS-driven reveal drops frames exactly when it is most visible.
+--------------------------------------------------------------------------- */
+@keyframes line-rise {
+  from {
+    transform: translate3d(0, 0.7em, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.line-rise > * {
+  display: block;
+  animation: line-rise 700ms var(--ease-out) both;
+  animation-delay: calc(var(--line-index, 0) * 80ms);
+}
+
+@keyframes fade-rise {
+  from {
+    transform: translate3d(0, 14px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.fade-rise {
+  animation: fade-rise 600ms var(--ease-out) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-x 38s linear infinite;
+}
+
+/* Hover motion only where hover is real. Touch fires false hovers on tap. */
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift {
+    transition: transform 160ms var(--ease-out);
+  }
+  .hover-lift:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+/* No-JS fallback for the scroll reveals, which set inline opacity:0 before
+   the intersection observer fires. */
+@media (scripting: none) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion: fewer and gentler, not zero. Opacity transitions that aid
+   comprehension survive; everything positional is removed.
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee {
+    animation: none;
+    transform: none;
+  }
+
+  .line-rise > *,
+  .fade-rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  /* Keep a short fade so state changes stay legible, drop all movement. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms !important;
+    transition-property: opacity, background-color, border-color, color !important;
+  }
 }

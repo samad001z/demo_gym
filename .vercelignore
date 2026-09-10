@@ -1,0 +1,3 @@
+# Local verification scripts. Not needed at build or runtime.
+verify.mjs
+map-check.mjs
