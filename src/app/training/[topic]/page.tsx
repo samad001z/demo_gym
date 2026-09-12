@@ -14,7 +14,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { MaskReveal } from "@/components/ui/motion-parts";
 import { AnswerBlock } from "@/components/AnswerBlock";
 import { JsonLd, breadcrumbs, canonical, pageMeta } from "@/lib/seo";
-import { trainingPages, branches, business, whatsappHref } from "@/lib/content";
+import { trainingPages, branches, whatsappHref } from "@/lib/content";
 
 export function generateStaticParams() {
   return trainingPages.map((t) => ({ topic: t.slug }));
@@ -36,12 +36,6 @@ export async function generateMetadata({
   return pageMeta({
     title: page.title,
     description: page.description,
-    path: `/training/${page.slug}`,
-    keywords: [
-      `${page.title.toLowerCase()}`,
-      `${page.slug.replace(/-/g, " ")} ${business.city}`,
-      `gym ${business.city}`,
-    ],
   });
 }
 
@@ -193,7 +187,8 @@ export default async function TrainingTopicPage({
                     Available at all seven branches
                   </h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-smoke">
-                    One membership, from Rs 999 a month, covers every floor.
+                    Membership pricing is available on request and access terms can
+                    be confirmed with the coaching desk.
                   </p>
                   <ul className="mt-5 space-y-px border-t border-seam pt-5">
                     {branches.map((b) => (

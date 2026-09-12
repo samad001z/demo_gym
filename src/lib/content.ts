@@ -1,20 +1,16 @@
 /**
  * Single source of truth for everything the page says.
  *
- * Every fact here comes from thefitnessedge.in. Nothing is invented: no fake
- * pricing tiers, no fake ratings, no fake member counts. If the business wants
- * to change a number, it changes here and nowhere else.
+ * Shared copy for the demo. Keep claims general until the business supplies
+ * approved facts and identifiers.
  */
 
 export const business = {
   name: "The Fitness Edge",
   short: "Fitness Edge",
   city: "Hyderabad",
-  founded: 2011,
-  founder: "Imran Khan",
-  tagline: "Hyderabad's premier fitness destination",
-  url: "https://thefitnessedge.in",
-  email: "info@thefitnessedge.in",
+  tagline: "A practical place to train",
+  url: "http://localhost:3000",
   /** Online coaching desk hours, per the site's WhatsApp support block. */
   supportHours: "Monday to Saturday, 10am - 5pm",
   whatsapp: {
@@ -31,25 +27,6 @@ export const whatsappHref = `https://wa.me/${business.whatsapp.number}?text=${en
 )}`;
 
 /* -------------------------------------------------------------------------- */
-
-export const stats = [
-  { value: 14, suffix: "+", label: "Years in Hyderabad", note: "Since 2011" },
-  { value: 1500, suffix: "+", label: "Members trained", note: "And counting" },
-  { value: 7, suffix: "", label: "Branches", note: "Across the city" },
-  { value: 100, suffix: "+", label: "CSR transformations", note: "Community programmes" },
-] as const;
-
-/* -------------------------------------------------------------------------- */
-
-/** Imran Khan's competitive record, exactly as the gym lists it. */
-export const founderTitles = [
-  "Mr. Osmania",
-  "Mr. Hyderabad",
-  "Mr. Warangal",
-  "Mr. GHMC",
-  "Mr. Telangana",
-  "Mr. South India",
-] as const;
 
 /* -------------------------------------------------------------------------- */
 
@@ -82,7 +59,7 @@ export const programs: Program[] = [
     slug: "personal",
     title: "Personal Training",
     summary:
-      "One coach, your schedule, your plan. Internationally certified trainers, and the founder still coaches.",
+      "One coach, your schedule, your plan. Programmes are built around your current fitness level.",
     image: "photo-1581009146145-b5ef050c2e1e",
     alt: "Trainer working through a cable press in a well-equipped gym",
   },
@@ -101,14 +78,6 @@ export const programs: Program[] = [
       "Flexibility, breathing and recovery work that keeps the heavy days repeatable instead of costly.",
     image: "photo-1546483875-ad9014c88eba",
     alt: "Member training on a bench in a naturally lit gym floor",
-  },
-  {
-    slug: "clinical",
-    title: "Health Reversal",
-    summary:
-      "Programmes for diabetes reversal, blood pressure management and return-to-training after injury.",
-    image: "photo-1540497077202-7c8a3999166f",
-    alt: "Rows of cardio equipment in a clean, bright training studio",
   },
 ];
 
@@ -162,11 +131,7 @@ export type Branch = {
   address?: string;
   phone?: string;
   plusCode?: string;
-  rating?: number;
-  reviewCount?: number;
-  googleMapsUrl?: string;
   nearbyAreas: readonly string[];
-  reviewExcerpts?: readonly string[];
   mapPosition: { x: number; y: number };
 };
 
@@ -179,20 +144,8 @@ export const branches: Branch[] = [
     area: "West Hyderabad's IT corridor, near the Financial District and HITEC City.",
     standout:
       "The only branch open continuously from 6am to 10pm, with no midday close.",
-    address:
-      "H No.15, 3/134, Gachibowli - Miyapur Rd, Anjaiah Nagar, Gachibowli, Hyderabad, Telangana 500084",
-    phone: "099852 95243",
-    plusCode: "F927+QJ Hyderabad, Telangana",
-    rating: 4.9,
-    reviewCount: 877,
-    googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Fitness%20Edge%20Gym%20Gachibowli%20Hyderabad",
+    phone: "+91 99999 00000",
     nearbyAreas: ["Gachibowli", "Financial District", "HITEC City", "Anjaiah Nagar"],
-    reviewExcerpts: [
-      "Great selection of equipment friendly staff parking available",
-      "It's a good place to workout nice ambience and good knowledge trainers..",
-      "Best prices... trainers are supporting.best gym in my location.",
-    ],
     mapPosition: { x: 28, y: 39 },
   },
   {
@@ -265,12 +218,12 @@ export const amenities = [
   "Nutrition cafe for post-workout refuelling",
 ] as const;
 
-/** Real, published offers. Two facts, no invented tier table. */
+/** Safe offer placeholders until approved figures are supplied. */
 export const offers = [
   {
     kicker: "Membership",
-    price: "999",
-    unit: "onwards",
+    price: "Pricing",
+    unit: "on request",
     title: "Full floor access",
     points: [
       "Access to cardio, strength and functional zones",
@@ -282,8 +235,8 @@ export const offers = [
   },
   {
     kicker: "Nutrition",
-    price: "599",
-    unit: "onwards",
+    price: "Pricing",
+    unit: "on request",
     title: "Protein and supplements",
     points: [
       "Premium protein stocked in-house",
@@ -291,42 +244,6 @@ export const offers = [
       "Available to members at all branches",
     ],
     primary: false,
-  },
-] as const;
-
-/* -------------------------------------------------------------------------- */
-
-/** Reviews as published on thefitnessedge.in, trimmed to a readable length. */
-export const testimonials = [
-  {
-    name: "Ramesh K.",
-    place: "Hyderabad",
-    quote:
-      "The trainers are highly knowledgeable and always ready to assist. I've seen tremendous improvements in my fitness, and the environment is motivating.",
-  },
-  {
-    name: "Priya S.",
-    place: "Begumpet",
-    quote:
-      "Modern equipment and friendly staff. Between the classes and the personal training I've noticed a significant change in my strength and endurance.",
-  },
-  {
-    name: "Ashok R.",
-    place: "Gachibowli",
-    quote:
-      "I've been a member since 2011 and the gym has come a long way. The personalised sessions have helped me meet my goals.",
-  },
-  {
-    name: "Neha P.",
-    place: "Saidabad",
-    quote:
-      "The unisex timings are perfect for my busy schedule. I've lost weight and gained muscle in just a few months.",
-  },
-  {
-    name: "Vikram D.",
-    place: "Kondapur",
-    quote:
-      "Great equipment and an even better team of trainers. The continuous hours at Gachibowli are especially convenient for me.",
   },
 ] as const;
 
@@ -343,15 +260,11 @@ export const faqs = [
   },
   {
     q: "Do you offer personal training?",
-    a: "Yes. Our personal trainers are internationally certified and programme to your specific goal, whether that is a first 5k, a body recomposition, or getting back to training after an injury.",
+    a: "Yes. Our trainers programme to your specific goal and current fitness level, whether that is a first 5k, a body recomposition, or building consistent training habits.",
   },
   {
     q: "Is this suitable for complete beginners?",
     a: "Yes. Members range from first-timers to competitive athletes. Everyone starts with a consultation, and the first weeks are built around learning the movements safely.",
-  },
-  {
-    q: "Do you help with diabetes, blood pressure or injury rehab?",
-    a: "Yes. Alongside fat loss and muscle gain we run programmes for diabetes reversal, blood pressure management and return-to-training after injury, coordinated with your own medical advice.",
   },
   {
     q: "How do I book a session?",
@@ -362,7 +275,7 @@ export const faqs = [
 /* -------------------------------------------------------------------------- */
 
 export const nav = [
-  { href: "/about", label: "Founder" },
+  { href: "/about", label: "About" },
   { href: "/training", label: "Training" },
   { href: "/gyms", label: "Branches" },
   { href: "/#membership", label: "Membership" },
@@ -395,7 +308,7 @@ export const trainingPages: readonly TrainingPage[] = [
       "Personal training at The Fitness Edge starts with a consultation covering your body type, health history, training age and goal. The coach then writes the work around your calendar rather than handing you a generic routine.",
     sections: [
       { heading: "A plan that changes when the numbers do", body: "Programming, nutrition and weekly review sit together. If the numbers are not moving, the plan changes instead of asking you to rely on motivation.", bullets: ["Goal and health-history consultation", "Measured training load", "Nutrition guidance that fits Hyderabad food and working hours", "Weekly review and programme adjustments"] },
-      { heading: "Coaching on the floor", body: "The team coaches movement quality in real time, correcting form before it becomes an avoidable setback. Founder Imran Khan still programmes and coaches alongside the certified training team." },
+      { heading: "Coaching on the floor", body: "The team coaches movement quality in real time, correcting form and helping each member train at an appropriate level." },
     ],
     faqs: [{ q: "Is personal training available at every branch?", a: "The Fitness Edge offers personal training across its Hyderabad branch network. Message the coaching desk to confirm the coach and time available at the branch nearest you." }, { q: "How much does personal training cost?", a: "Personal training is quoted after consultation because the programme length and coaching requirement determine the price." }],
   },
@@ -451,13 +364,13 @@ export const trainingPages: readonly TrainingPage[] = [
     slug: "gym-membership-prices",
     title: "Gym membership prices in Hyderabad",
     kicker: "Clear starting prices",
-    description: "The Fitness Edge gym membership starts at Rs 999 in Hyderabad, with protein and supplement products from Rs 599. Personal training is quoted after consultation.",
-    intro: "The Fitness Edge publishes two starting prices rather than an invented tier table: membership from Rs 999 and protein and supplements from Rs 599.",
+    description: "The Fitness Edge offers gym membership and nutrition products in Hyderabad. Pricing is available on request, with personal training quoted after consultation.",
+    intro: "The Fitness Edge keeps pricing simple: membership, nutrition products and personal training are quoted on request after a conversation about your needs.",
     sections: [
-      { heading: "Membership from Rs 999", body: "The membership offer includes access to cardio, strength and functional zones, group classes including HIIT, yoga and kickboxing, an induction session and access across seven Hyderabad branches.", bullets: ["Cardio, strength and functional zones", "HIIT, yoga and kickboxing group classes", "Induction with a certified trainer", "Seven branches across Hyderabad"] },
+      { heading: "Membership access", body: "Membership includes access to cardio, strength and functional zones, group classes including HIIT, yoga and kickboxing, and an induction session.", bullets: ["Cardio, strength and functional zones", "HIIT, yoga and kickboxing group classes", "Induction with a certified trainer", "Ask about branch access"] },
       { heading: "What needs a consultation", body: "Personal training and specialist programmes are quoted individually because the programme length and coaching requirement determine the price. Message the coaching desk before joining." },
     ],
-    faqs: [{ q: "How much is Fitness Edge membership?", a: "Membership starts at Rs 999 per month. Confirm the current offer and branch terms with the coaching desk before joining." }, { q: "Does one membership cover all branches?", a: "The published membership offer describes access across seven Hyderabad branches. Confirm the current access terms when you enquire." }],
+    faqs: [{ q: "How much is Fitness Edge membership?", a: "Pricing is available on request. Confirm the current offer and branch terms with the coaching desk before joining." }, { q: "Does one membership cover all branches?", a: "Ask the coaching desk about current access terms for the branch or branches you plan to use." }],
   },
   {
     slug: "equipment-guide",
@@ -475,13 +388,13 @@ export const trainingPages: readonly TrainingPage[] = [
     slug: "trainers",
     title: "Fitness Edge trainers in Hyderabad",
     kicker: "Coaching with a competitive foundation",
-    description: "Meet the coaching approach at The Fitness Edge in Hyderabad, founded by bodybuilding champion Imran Khan and supported by internationally certified trainers.",
-    intro: "The Fitness Edge was founded by Imran Khan, a bodybuilding champion with Mr. Osmania, Mr. Hyderabad, Mr. Warangal, Mr. GHMC, Mr. Telangana and Mr. South India titles. He still programmes and coaches on the floor.",
+    description: "Meet the coaching approach at The Fitness Edge in Hyderabad, supported by trainers who build programmes around each member's current fitness level.",
+    intro: "The Fitness Edge coaching approach starts with a conversation about your current fitness level, goals and schedule, then builds a plan that can be adjusted over time.",
     sections: [
-      { heading: "A named founder, a practical method", body: "The coaching process moves from consultation to programming, nutrition, weekly review, coaching and recovery. The point is not a single hard session; it is a plan that can be adjusted and repeated." },
-      { heading: "What is and is not published", body: "The site currently publishes the founder's record and the team's international certification, but not individual trainer names, branch rosters or certificate documents. Those details should be added only when the business supplies them." },
+      { heading: "A practical method", body: "The coaching process moves from consultation to programming, nutrition, weekly review, coaching and recovery. The point is not a single hard session; it is a plan that can be adjusted and repeated." },
+      { heading: "Coaching built around you", body: "Programmes are adapted to your current fitness level, goals and schedule. Ask the coaching desk about trainer availability and the options at your preferred branch." },
     ],
-    faqs: [{ q: "Who founded The Fitness Edge?", a: "The Fitness Edge was founded in 2011 by Imran Khan, a bodybuilding champion and internationally certified personal trainer and nutritionist." }, { q: "Can I request a specific trainer?", a: "Message the coaching desk with your branch, goal and preferred schedule so the team can confirm current trainer availability." }],
+    faqs: [{ q: "How does The Fitness Edge coaching work?", a: "The coaching process starts with a consultation, then combines programming, nutrition guidance, weekly review, coaching and recovery around your current fitness level." }, { q: "Can I request a specific trainer?", a: "Message the coaching desk with your branch, goal and preferred schedule so the team can confirm current trainer availability." }],
   },
 ] as const;
 
@@ -494,8 +407,6 @@ export const ticker = [
   "CrossFit",
   "Nutrition counselling",
   "Strength & conditioning",
-  "Injury rehab",
-  "Diabetes reversal",
   "Group classes",
 ] as const;
 
@@ -514,12 +425,12 @@ export const ticker = [
  */
 export const answers = [
   {
-    q: "Which is the best gym in Hyderabad?",
-    a: "The Fitness Edge is one of Hyderabad's longest-running gym chains, operating since 2011 across seven branches. It was founded by Imran Khan, a bodybuilding champion who holds the Mr. Hyderabad, Mr. Telangana and Mr. South India titles. The chain has trained more than 1,500 members and offers internationally certified personal training from Rs 999 a month.",
+    q: "What kind of gym is The Fitness Edge?",
+    a: "The Fitness Edge is a gym in Hyderabad offering strength, cardio, group classes, yoga, nutrition guidance and personal training. Programmes are built around each member's current fitness level, goals and schedule.",
   },
   {
     q: "How much does a gym membership cost in Hyderabad?",
-    a: "Membership at The Fitness Edge starts at Rs 999 per month, which covers the cardio, strength and functional zones plus group classes at any of the seven branches. Personal training and specialist programmes such as diabetes reversal are quoted individually after a consultation, because the programme length determines the price.",
+    a: "Pricing is available on request. Ask the coaching desk about membership, group classes, nutrition products and personal training options for your goals and schedule.",
   },
   {
     q: "Which gym in Hyderabad is open 24 hours?",
@@ -530,12 +441,8 @@ export const answers = [
     a: "The Fitness Edge Saidabad reserves 11am to 4pm as a women-only floor every day. Outside that window the branch is unisex, opening 6am to 11am and 5pm to 10pm. Women train at all seven branches during general hours, and female members can request a female trainer for personal training sessions.",
   },
   {
-    q: "Can a gym help reverse diabetes or manage blood pressure?",
-    a: "The Fitness Edge runs supervised programmes for diabetes reversal, blood pressure management and return-to-training after injury, alongside standard fat loss and muscle gain plans. These are coordinated with your own medical advice rather than replacing it, and are programmed by certified trainers under founder Imran Khan, an internationally certified trainer and nutritionist.",
-  },
-  {
-    q: "Where is The Fitness Edge Gachibowli and what is it rated?",
-    a: "The Fitness Edge Gachibowli is at H No.15, 3/134, Gachibowli - Miyapur Road, Anjaiah Nagar, Hyderabad 500084, on 099852 95243. It holds 4.9 out of 5 from 877 Google reviews, the highest-reviewed branch in the chain, and is the only one open continuously from 6am to 10pm.",
+    q: "Where is The Fitness Edge Gachibowli?",
+    a: "The Fitness Edge Gachibowli branch details, opening hours and available training options are listed on its branch page. Contact details are placeholders for this private demo.",
   },
   {
     q: "Is The Fitness Edge suitable for beginners?",
@@ -549,4 +456,4 @@ export const answers = [
  * across a site are what let an answer engine resolve who you are.
  */
 export const entitySummary =
-  `${business.name} is a gym chain in ${business.city}, India, founded in ${business.founded} by bodybuilding champion ${business.founder}. It operates seven branches and offers personal training, group classes, nutrition counselling and supervised health-reversal programmes. Membership starts at Rs 999 per month.`;
+  `${business.name} is a gym in ${business.city}, India, offering personal training, group classes, strength and cardio coaching, yoga and nutrition guidance. Pricing is available on request.`;

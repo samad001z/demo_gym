@@ -6,8 +6,8 @@
  * launch; the component API does not change when you do.
  *
  * Deliberate rule: no stock face is ever placed under a real person's name.
- * The founder and the coaches are presented through their record, not through
- * a photograph of someone else.
+ * Coaches are presented through the training environment, not through a
+ * photograph of an identifiable person.
  */
 export function photo(id: string, width: number, opts?: { grayscale?: boolean }) {
   const params = new URLSearchParams({

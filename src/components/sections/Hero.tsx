@@ -1,14 +1,12 @@
 import Image from "next/image";
 import {
   ArrowDownRightIcon,
-  ArrowUpRightIcon,
-  StarIcon,
   WhatsappLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { ButtonLink } from "../ui/Button";
 import { HeroParallax, Magnetic } from "../ui/motion-parts";
 import { photo, BLUR } from "@/lib/img";
-import { branches, whatsappHref } from "@/lib/content";
+import { whatsappHref } from "@/lib/content";
 
 /**
  * Asymmetric split hero. Four text elements exactly: eyebrow, headline,
@@ -20,8 +18,6 @@ import { branches, whatsappHref } from "@/lib/content";
  * where a JS-driven reveal would stutter at the one moment everybody watches.
  */
 export function Hero() {
-  const reviewedBranch = branches.find((branch) => branch.slug === "gachibowli");
-
   return (
     <section
       id="top"
@@ -53,7 +49,7 @@ export function Hero() {
 
       <div className="relative mx-auto w-full max-w-[1400px] px-5 pb-16 sm:px-8 lg:pb-0">
         <div className="max-w-[62ch] lg:max-w-[58%]">
-          <p className="label fade-rise">Hyderabad, since 2011</p>
+          <p className="label fade-rise">Hyderabad training network</p>
 
           {/* Each line rises on its own 80ms beat. Two lines desktop. */}
           <h1 className="display line-rise mt-5 text-[3.25rem] leading-[0.9] sm:text-[4.5rem] lg:text-[4.5rem] xl:text-[5.25rem]">
@@ -92,26 +88,6 @@ export function Hero() {
             </ButtonLink>
           </div>
 
-          {reviewedBranch?.rating && reviewedBranch.reviewCount && reviewedBranch.googleMapsUrl && (
-            <a
-              href={reviewedBranch.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${reviewedBranch.rating} out of 5 from ${reviewedBranch.reviewCount} Google reviews for the Gachibowli branch`}
-              className="fade-rise mt-6 inline-flex max-w-full items-center gap-3 border-l-2 border-ember pl-4 text-sm text-smoke transition-colors hover:text-bone"
-              style={{ "--rise-delay": "500ms" } as React.CSSProperties}
-            >
-              <span className="flex shrink-0 items-center gap-1.5 text-ember">
-                <StarIcon size={17} weight="fill" aria-hidden />
-                <span className="tnum font-display text-xl font-semibold">{reviewedBranch.rating}</span>
-              </span>
-              <span>
-                <strong className="font-medium text-bone">{reviewedBranch.reviewCount} Google reviews</strong>
-                <span className="block text-xs text-ash">Gachibowli public listing</span>
-              </span>
-              <ArrowUpRightIcon size={15} weight="bold" className="shrink-0 text-ember" aria-hidden />
-            </a>
-          )}
         </div>
       </div>
     </section>

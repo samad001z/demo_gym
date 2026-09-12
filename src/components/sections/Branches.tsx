@@ -7,7 +7,6 @@ import {
   ClockIcon,
   MapPinIcon,
   PhoneIcon,
-  StarIcon,
   WhatsappLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "../ui/Reveal";
@@ -36,10 +35,7 @@ const mapPins: Record<string, { x: number; y: number; anchor: "left" | "right" }
 const branchRoute = "M176 151 C214 158 216 193 246 207 S227 244 203 260 S160 315 142 349 M246 207 C314 172 374 157 439 170 S441 235 462 278 S511 338 550 384";
 
 function mapsHref(branch: (typeof branches)[number]) {
-  if (branch.googleMapsUrl) return branch.googleMapsUrl;
-  const query = branch.address
-    ? branch.address
-    : `${business.name} ${branch.name} ${business.city}`;
+  const query = branch.address ?? `${business.name} ${branch.name} ${business.city}`;
   return `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
 }
 
@@ -66,7 +62,7 @@ function HyderabadMap({
       });
       animate(".map-route", {
         strokeDashoffset: [1100, 0],
-        duration: 1500,
+        duration: 1_500,
         delay: 250,
         ease: "inOut(3)",
       });
@@ -288,19 +284,6 @@ export function Branches() {
                       <p className="label">Selected branch</p>
                       <h3 className="display mt-3 text-4xl text-bone sm:text-5xl">{branch.name}</h3>
                     </div>
-                    {branch.rating && branch.reviewCount && (
-                      <a
-                        href={mapsHref(branch)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 rounded-edge border border-ember/35 bg-ember/10 px-3 py-2 text-ember transition-colors hover:border-ember hover:bg-ember hover:text-void"
-                        aria-label={`${branch.rating} out of 5 from ${branch.reviewCount} Google reviews for ${branch.name}`}
-                      >
-                        <StarIcon size={16} weight="fill" aria-hidden />
-                        <span className="tnum font-display text-lg font-semibold">{branch.rating}</span>
-                        <span className="text-xs text-smoke">({branch.reviewCount})</span>
-                      </a>
-                    )}
                   </div>
 
                   <p className="mt-5 text-[15px] leading-relaxed text-smoke">{branch.area}</p>
@@ -322,10 +305,10 @@ export function Branches() {
                   )}
                   {branch.plusCode && <p className="mt-2 pl-8 text-xs text-ash">Plus code: {branch.plusCode}</p>}
                   {branch.phone && (
-                    <a href={`tel:${branch.phone.replace(/[^\d+]/g, "")}`} className="mt-3 flex items-center gap-3 text-smoke transition-colors hover:text-ember">
+                    <span className="mt-3 flex items-center gap-3 text-smoke">
                       <PhoneIcon size={17} className="text-ember" aria-hidden />
                       <span className="tnum">{branch.phone}</span>
-                    </a>
+                    </span>
                   )}
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
