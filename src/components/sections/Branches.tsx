@@ -93,7 +93,7 @@ function HyderabadMap({
     <div
       ref={root}
       className="relative min-h-[430px] overflow-hidden bg-[#e9ebe6] sm:min-h-[560px]"
-      aria-label="Stylized Hyderabad map showing all seven Fitness Edge branches"
+       aria-label="Stylized Hyderabad map showing all seven gym branches"
     >
       <svg viewBox="0 0 760 540" className="absolute inset-0 h-full w-full" aria-hidden>
         <defs>
@@ -143,7 +143,7 @@ function HyderabadMap({
         </div>
         <div className="hidden items-center gap-2 border border-[#c2c6bf] bg-[#f7f8f4]/85 px-3 py-2 text-[#555a55] sm:flex">
           <span className="h-1.5 w-7 bg-[#ff4a18]" aria-hidden />
-          <span className="font-display text-[10px] font-semibold uppercase tracking-[0.14em]">Fitness Edge route</span>
+           <span className="font-display text-[10px] font-semibold uppercase tracking-[0.14em]">Gym route</span>
         </div>
       </div>
 

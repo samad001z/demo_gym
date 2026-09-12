@@ -1,4 +1,4 @@
-# Fitness Edge Demo
+# Gym Template Demo
 
 This repository contains a private, non-indexable demo for a gym website.
 

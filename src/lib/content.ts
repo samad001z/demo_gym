@@ -6,8 +6,8 @@
  */
 
 export const business = {
-  name: "The Fitness Edge",
-  short: "Fitness Edge",
+  name: "Your Gym",
+  short: "Gym",
   city: "Hyderabad",
   tagline: "A practical place to train",
   url: "http://localhost:3000",
@@ -18,7 +18,7 @@ export const business = {
     // country code first). The link degrades to wa.me's own search if wrong.
     number: "919000000000",
     message:
-      "Hi Fitness Edge, I'd like to know more about membership and a trial session.",
+      "Hi, I'd like to know more about membership and a trial session.",
   },
 } as const;
 
@@ -303,21 +303,21 @@ export const trainingPages: readonly TrainingPage[] = [
     title: "Personal training in Hyderabad",
     kicker: "One coach. Your plan.",
     description:
-      "Personal training in Hyderabad from internationally certified coaches at The Fitness Edge. Start with a consultation, then train against a plan built around your goal and schedule.",
+      "Personal training in Hyderabad from coaches who build programmes around your goal and schedule. Start with a consultation, then train against a plan that can adapt.",
     intro:
-      "Personal training at The Fitness Edge starts with a consultation covering your body type, health history, training age and goal. The coach then writes the work around your calendar rather than handing you a generic routine.",
+      "Personal training starts with a consultation covering your goals, current fitness level, training experience and schedule. The coach then writes the work around your calendar rather than handing you a generic routine.",
     sections: [
       { heading: "A plan that changes when the numbers do", body: "Programming, nutrition and weekly review sit together. If the numbers are not moving, the plan changes instead of asking you to rely on motivation.", bullets: ["Goal and health-history consultation", "Measured training load", "Nutrition guidance that fits Hyderabad food and working hours", "Weekly review and programme adjustments"] },
       { heading: "Coaching on the floor", body: "The team coaches movement quality in real time, correcting form and helping each member train at an appropriate level." },
     ],
-    faqs: [{ q: "Is personal training available at every branch?", a: "The Fitness Edge offers personal training across its Hyderabad branch network. Message the coaching desk to confirm the coach and time available at the branch nearest you." }, { q: "How much does personal training cost?", a: "Personal training is quoted after consultation because the programme length and coaching requirement determine the price." }],
+    faqs: [{ q: "Is personal training available at every branch?", a: "Personal training may be available across the branch network. Message the coaching desk to confirm the coach and time available at the branch nearest you." }, { q: "How much does personal training cost?", a: "Personal training is quoted after consultation because the programme length and coaching requirement determine the price." }],
   },
   {
     slug: "beginner-gym-programme",
     title: "Beginner gym programme in Hyderabad",
     kicker: "Start with the first week",
-    description: "A beginner gym programme in Hyderabad with consultation-first coaching, movement instruction and support from certified trainers at The Fitness Edge.",
-    intro: "You do not need to be fit before joining a gym. The Fitness Edge starts beginners with a consultation, teaches the movements safely and builds the first weeks around consistency rather than punishment.",
+    description: "A beginner gym programme in Hyderabad with consultation-first coaching, movement instruction and support from trainers.",
+    intro: "You do not need to be fit before joining a gym. Start with a consultation, learn the movements safely and build the first weeks around consistency rather than punishment.",
     sections: [
       { heading: "What happens first", body: "The first conversation covers your body type, health history, work pattern and what you want out of training. That context shapes the starting load, exercise choice and pace.", bullets: ["Learn the main movement patterns", "Train at a manageable starting intensity", "Ask questions on the floor", "Review the plan as your confidence grows"] },
       { heading: "A gym for first-timers and athletes", body: "The same floors serve complete beginners, members returning after a break and competitive athletes. Exercises are scaled by the coach rather than assuming everyone starts at the same level." },
@@ -328,20 +328,20 @@ export const trainingPages: readonly TrainingPage[] = [
     slug: "womens-gym-timings",
     title: "Women-only gym timings in Hyderabad",
     kicker: "A clear window at Saidabad",
-    description: "Women-only gym timings in Hyderabad at The Fitness Edge Saidabad, with a dedicated 11am to 4pm floor and unisex sessions before and after.",
-    intro: "The Fitness Edge Saidabad reserves 11am to 4pm as a women-only floor every day. Outside that window, the branch is unisex from 6am to 11am and 5pm to 10pm.",
+    description: "Women-only gym timings in Hyderabad at the Saidabad branch, with a dedicated 11am to 4pm floor and unisex sessions before and after.",
+    intro: "The Saidabad branch reserves 11am to 4pm as a women-only floor every day. Outside that window, the branch is unisex from 6am to 11am and 5pm to 10pm.",
     sections: [
       { heading: "Saidabad schedule", body: "The women-only window is part of the published Saidabad schedule, not a temporary appointment slot.", bullets: ["6:00am to 11:00am, unisex", "11:00am to 4:00pm, women only", "5:00pm to 10:00pm, unisex"] },
-      { heading: "Women across the network", body: "Women also train at all seven branches during their general hours. For personal training, members can ask the coaching desk about the coach and timing available for their preferred branch." },
+      { heading: "Women across the network", body: "Women can train at branches during general hours. For personal training, ask the coaching desk about the coach and timing available for your preferred branch." },
     ],
-    faqs: [{ q: "Which branch has women-only gym timings?", a: "Saidabad reserves 11am to 4pm every day for a women-only floor. The branch is unisex from 6am to 11am and 5pm to 10pm." }, { q: "Can women train at other Fitness Edge branches?", a: "Yes. Women train at all seven branches during general hours." }],
+    faqs: [{ q: "Which branch has women-only gym timings?", a: "Saidabad reserves 11am to 4pm every day for a women-only floor. The branch is unisex from 6am to 11am and 5pm to 10pm." }, { q: "Can women train at other branches?", a: "Yes. Women can train at branches during general hours." }],
   },
   {
     slug: "strength-and-conditioning",
     title: "Strength and conditioning in Hyderabad",
     kicker: "Build capacity, not noise",
-    description: "Strength and conditioning in Hyderabad using barbell, machine, cardio and functional work programmed around your training age at The Fitness Edge.",
-    intro: "Strength work at The Fitness Edge combines resistance training with conditioning. The starting point depends on your current health, training age and goal, not on a fixed class template.",
+    description: "Strength and conditioning in Hyderabad using barbell, machine, cardio and functional work programmed around your training age.",
+    intro: "Strength work combines resistance training with conditioning. The starting point depends on your current fitness level, training experience and goal, not on a fixed class template.",
     sections: [
       { heading: "The floor has room for different goals", body: "Members can work through strength, cardio and functional zones, with certified trainers adjusting the load and movement choice to the person in front of them.", bullets: ["Barbell and free-weight work", "Machine-based strength training", "Cardio and conditioning", "Functional training and mobility"] },
       { heading: "Repeatable training", body: "Recovery and mobility are part of the method because the goal is to make the next training day possible, not to turn one hard session into a week away." },
@@ -352,8 +352,8 @@ export const trainingPages: readonly TrainingPage[] = [
     slug: "fat-loss-coaching",
     title: "Fat-loss coaching in Hyderabad",
     kicker: "Training plus a plan you can keep",
-    description: "Fat-loss and body-recomposition coaching in Hyderabad with measured training, nutrition guidance and weekly review at The Fitness Edge.",
-    intro: "Fat loss at The Fitness Edge is treated as a programme rather than a punishment. Training load, food choices, working hours and weekly progress all sit in the same conversation.",
+    description: "Fat-loss and body-recomposition coaching in Hyderabad with measured training, nutrition guidance and weekly review.",
+    intro: "Fat loss is treated as a programme rather than a punishment. Training load, food choices, working hours and weekly progress all sit in the same conversation.",
     sections: [
       { heading: "Body recomposition, measured", body: "The coaching team pairs resistance and conditioning work with nutrition guidance that fits Hyderabad food and real working hours. Progress is reviewed so the programme can change when the evidence changes." },
       { heading: "Support beyond the first plan", body: "The process includes consultation, programming, nutrition, weekly review, coaching and recovery. That structure is designed to make the work repeatable past the first few weeks." },
@@ -364,20 +364,20 @@ export const trainingPages: readonly TrainingPage[] = [
     slug: "gym-membership-prices",
     title: "Gym membership prices in Hyderabad",
     kicker: "Clear starting prices",
-    description: "The Fitness Edge offers gym membership and nutrition products in Hyderabad. Pricing is available on request, with personal training quoted after consultation.",
-    intro: "The Fitness Edge keeps pricing simple: membership, nutrition products and personal training are quoted on request after a conversation about your needs.",
+    description: "Gym membership and nutrition products in Hyderabad. Pricing is available on request, with personal training quoted after consultation.",
+    intro: "Pricing stays simple: membership, nutrition products and personal training are quoted on request after a conversation about your needs.",
     sections: [
       { heading: "Membership access", body: "Membership includes access to cardio, strength and functional zones, group classes including HIIT, yoga and kickboxing, and an induction session.", bullets: ["Cardio, strength and functional zones", "HIIT, yoga and kickboxing group classes", "Induction with a certified trainer", "Ask about branch access"] },
       { heading: "What needs a consultation", body: "Personal training and specialist programmes are quoted individually because the programme length and coaching requirement determine the price. Message the coaching desk before joining." },
     ],
-    faqs: [{ q: "How much is Fitness Edge membership?", a: "Pricing is available on request. Confirm the current offer and branch terms with the coaching desk before joining." }, { q: "Does one membership cover all branches?", a: "Ask the coaching desk about current access terms for the branch or branches you plan to use." }],
+    faqs: [{ q: "How much is gym membership?", a: "Pricing is available on request. Confirm the current offer and branch terms with the coaching desk before joining." }, { q: "Does one membership cover all branches?", a: "Ask the coaching desk about current access terms for the branch or branches you plan to use." }],
   },
   {
     slug: "equipment-guide",
-    title: "Gym equipment at The Fitness Edge",
+    title: "Gym equipment and facilities",
     kicker: "A floor built for more than one goal",
-    description: "Explore the equipment and facilities published by The Fitness Edge: cardio, strength, functional training, lockers, showers and a nutrition cafe across seven Hyderabad branches.",
-    intro: "The Fitness Edge publishes a practical equipment mix instead of a novelty list: cardio, strength and functional zones with the facilities members need around a session.",
+    description: "Explore a practical equipment mix: cardio, strength, functional training, lockers, showers and a nutrition cafe across seven Hyderabad branches.",
+    intro: "The gym offers a practical equipment mix instead of a novelty list: cardio, strength and functional zones with the facilities members need around a session.",
     sections: [
       { heading: "What is on the floor", body: "The published amenities include modern cardio, strength and functional equipment, with separate zones for different kinds of training.", bullets: ["Modern cardio equipment", "Strength and free-weight equipment", "Functional training area", "Separate cardio, weightlifting and class zones"] },
       { heading: "Around the session", body: "Members can also use personal lockers, clean washrooms with showers and the nutrition cafe for post-workout refuelling. Confirm branch-specific availability before travelling." },
@@ -386,15 +386,15 @@ export const trainingPages: readonly TrainingPage[] = [
   },
   {
     slug: "trainers",
-    title: "Fitness Edge trainers in Hyderabad",
+    title: "Gym trainers in Hyderabad",
     kicker: "Coaching with a competitive foundation",
-    description: "Meet the coaching approach at The Fitness Edge in Hyderabad, supported by trainers who build programmes around each member's current fitness level.",
-    intro: "The Fitness Edge coaching approach starts with a conversation about your current fitness level, goals and schedule, then builds a plan that can be adjusted over time.",
+    description: "Meet a coaching approach in Hyderabad built around each member's current fitness level.",
+    intro: "The coaching approach starts with a conversation about your current fitness level, goals and schedule, then builds a plan that can be adjusted over time.",
     sections: [
       { heading: "A practical method", body: "The coaching process moves from consultation to programming, nutrition, weekly review, coaching and recovery. The point is not a single hard session; it is a plan that can be adjusted and repeated." },
       { heading: "Coaching built around you", body: "Programmes are adapted to your current fitness level, goals and schedule. Ask the coaching desk about trainer availability and the options at your preferred branch." },
     ],
-    faqs: [{ q: "How does The Fitness Edge coaching work?", a: "The coaching process starts with a consultation, then combines programming, nutrition guidance, weekly review, coaching and recovery around your current fitness level." }, { q: "Can I request a specific trainer?", a: "Message the coaching desk with your branch, goal and preferred schedule so the team can confirm current trainer availability." }],
+    faqs: [{ q: "How does gym coaching work?", a: "The coaching process starts with a consultation, then combines programming, nutrition guidance, weekly review, coaching and recovery around your current fitness level." }, { q: "Can I request a specific trainer?", a: "Message the coaching desk with your branch, goal and preferred schedule so the team can confirm current trainer availability." }],
   },
 ] as const;
 
@@ -421,12 +421,12 @@ export const ticker = [
  * shape is what generative search engines lift; a passage that starts with
  * "We also offer..." cannot be extracted because it has no subject.
  *
- * Kept to 40-70 words each. Every claim traces to thefitnessedge.in.
+ * Kept to 40-70 words each. Copy is intentionally general for the template.
  */
 export const answers = [
   {
-    q: "What kind of gym is The Fitness Edge?",
-    a: "The Fitness Edge is a gym in Hyderabad offering strength, cardio, group classes, yoga, nutrition guidance and personal training. Programmes are built around each member's current fitness level, goals and schedule.",
+    q: "What kind of gym is this?",
+    a: "This is a gym in Hyderabad offering strength, cardio, group classes, yoga, nutrition guidance and personal training. Programmes are built around each member's current fitness level, goals and schedule.",
   },
   {
     q: "How much does a gym membership cost in Hyderabad?",
@@ -434,19 +434,19 @@ export const answers = [
   },
   {
     q: "Which gym in Hyderabad is open 24 hours?",
-    a: "The Fitness Edge Gachibowli is open continuously from 6am to 10pm with no midday break, the longest unbroken window in the chain. Hafeezpet runs latest into the night, closing at 11pm. The other five branches run a morning window and an evening window, with the exact times listed on each branch page.",
+    a: "The Gachibowli branch is open continuously from 6am to 10pm with no midday break. Hafeezpet runs latest into the night, closing at 11pm. The other branches run a morning window and an evening window, with exact times listed on each branch page.",
   },
   {
     q: "Are there women-only gym timings in Hyderabad?",
-    a: "The Fitness Edge Saidabad reserves 11am to 4pm as a women-only floor every day. Outside that window the branch is unisex, opening 6am to 11am and 5pm to 10pm. Women train at all seven branches during general hours, and female members can request a female trainer for personal training sessions.",
+    a: "The Saidabad branch reserves 11am to 4pm as a women-only floor every day. Outside that window the branch is unisex, opening 6am to 11am and 5pm to 10pm. Women can train at branches during general hours and request a female trainer for personal training sessions.",
   },
   {
-    q: "Where is The Fitness Edge Gachibowli?",
-    a: "The Fitness Edge Gachibowli branch details, opening hours and available training options are listed on its branch page. Contact details are placeholders for this private demo.",
+    q: "Where is the Gachibowli branch?",
+    a: "The Gachibowli branch details, opening hours and available training options are listed on its branch page. Contact details are placeholders for this private demo.",
   },
   {
-    q: "Is The Fitness Edge suitable for beginners?",
-    a: "Yes. Every member at The Fitness Edge starts with a consultation covering body type, health history and goals before any programme is written. First weeks focus on learning movements safely, with certified trainers correcting form on the floor. The chain trains everyone from complete beginners to competitive athletes across its seven Hyderabad branches.",
+    q: "Is this gym suitable for beginners?",
+    a: "Yes. Start with a consultation covering goals and current fitness level before any programme is written. The first weeks focus on learning movements safely, with trainers correcting form on the floor.",
   },
 ] as const;
 
