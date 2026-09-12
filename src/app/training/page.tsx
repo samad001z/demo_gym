@@ -11,15 +11,7 @@ import { trainingPages, business, whatsappHref } from "@/lib/content";
 
 export const metadata = pageMeta({
   title: "Training and coaching in Hyderabad",
-  description: `Personal training, beginner programmes, strength and conditioning, fat-loss coaching and women-only timings at ${business.name}, ${business.city}. Seven branches, membership from Rs 999.`,
-  path: "/training",
-  keywords: [
-    "personal training Hyderabad",
-    "fitness coaching Hyderabad",
-    "strength and conditioning Hyderabad",
-    "fat loss coaching Hyderabad",
-    "beginner gym programme Hyderabad",
-  ],
+  description: `Personal training, beginner programmes, strength and conditioning, fat-loss coaching and women-only timings at ${business.name}, ${business.city}. Pricing is available on request.`,
 });
 
 /** Hub for the topic cluster. Every spoke links back here and to the branches. */

@@ -13,7 +13,7 @@ export function Ticker() {
 
   return (
     <section
-      aria-label="Disciplines trained at Fitness Edge"
+      aria-label="Disciplines trained at the gym"
       className="overflow-hidden border-y border-seam bg-carbon py-5"
     >
       <div className="flex w-max animate-marquee items-center will-change-transform">

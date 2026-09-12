@@ -2,12 +2,12 @@
  * Unsplash source photography.
  *
  * These are real, verified photo IDs, not stock of the actual branches. Swap
- * each `image` field in content.ts for a real Fitness Edge photograph before
- * launch; the component API does not change when you do.
+ * each `image` field in content.ts for approved photography before launch;
+ * the component API does not change when you do.
  *
  * Deliberate rule: no stock face is ever placed under a real person's name.
- * The founder and the coaches are presented through their record, not through
- * a photograph of someone else.
+ * Coaches are presented through the training environment, not through a
+ * photograph of an identifiable person.
  */
 export function photo(id: string, width: number, opts?: { grayscale?: boolean }) {
   const params = new URLSearchParams({

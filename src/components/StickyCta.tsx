@@ -45,7 +45,7 @@ export function StickyCta() {
           <div className="flex items-center gap-3 px-4 pt-3">
             <p className="min-w-0 flex-1 text-[13px] leading-tight text-smoke">
               <span className="block font-display font-semibold uppercase tracking-[0.1em] text-bone">
-                Membership from Rs 999
+                Membership pricing on request
               </span>
               Seven branches across Hyderabad
             </p>

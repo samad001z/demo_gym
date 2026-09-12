@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { ButtonLink } from "@/components/ui/Button";
 import { branches } from "@/lib/content";
 
-export const metadata = { title: "Page not found", robots: { index: false } };
+export const metadata = { title: "Page not found", robots: { index: false, follow: false } };
 
 export default function NotFound() {
   return (

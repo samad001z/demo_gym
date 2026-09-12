@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { business, entitySummary } from "./content";
 
 /**
- * The origin every canonical, sitemap entry and OG tag is built from.
+ * The origin used by structured-data URLs and internal links.
  *
  * Resolution order:
  *   1. NEXT_PUBLIC_SITE_URL   - set this once the real domain is attached
@@ -33,36 +33,20 @@ export function canonical(path = "/") {
 }
 
 /**
- * Every page builds its metadata through here so canonical, OG and Twitter
- * cards can never drift apart. A location page that self-canonicalises wrong
- * is the fastest way to lose a local ranking.
+ * Page metadata intentionally contains no canonical, social-preview, or
+ * keyword fields because this is a private demo.
  */
 export function pageMeta({
   title,
   description = entitySummary,
-  path = "/",
-  keywords = [],
 }: {
   title: string;
   description?: string;
-  path?: string;
-  keywords?: string[];
 }): Metadata {
-  const url = canonical(path);
   return {
     title,
     description,
-    keywords,
-    alternates: { canonical: url },
-    openGraph: {
-      type: "website",
-      locale: "en_IN",
-      url,
-      siteName: business.name,
-      title,
-      description,
-    },
-    twitter: { card: "summary_large_image", title, description },
+    robots: { index: false, follow: false },
   };
 }
 
@@ -123,11 +107,8 @@ const ALL_DAYS = [
 /**
  * One HealthClub node per branch.
  *
- * `streetAddress`, `telephone` and `aggregateRating` are emitted only for
- * branches whose real listing details have been supplied. Gachibowli has
- * them; the other six are still pending. A wrong address in structured data
- * is worse than a missing one, and a rating without a verifiable review count
- * is a manual-action risk, so both stay absent until the data exists.
+ * `streetAddress` and `telephone` are included only where the demo has a
+ * placeholder or approved branch detail.
  */
 export function branchSchema(branch: {
   slug: string;
@@ -136,8 +117,6 @@ export function branchSchema(branch: {
   area: string;
   address?: string;
   phone?: string;
-  rating?: number;
-  reviewCount?: number;
   nearbyAreas?: readonly string[];
 }) {
   return {
@@ -172,18 +151,6 @@ export function branchSchema(branch: {
       .filter(Boolean),
     priceRange: "₹₹",
     currenciesAccepted: "INR",
-    founder: { "@id": canonical("/about") + "#founder" },
-    foundingDate: String(business.founded),
-    ...(branch.rating && branch.reviewCount
-      ? {
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: branch.rating,
-            reviewCount: branch.reviewCount,
-            bestRating: 5,
-          },
-        }
-      : {}),
     amenityFeature: [
       "Cardio zone",
       "Strength and free weights",

@@ -15,15 +15,7 @@ export const metadata = pageMeta({
   title: `${branches.length} Gyms in Hyderabad`,
   description: `${business.name} operates ${branches.length} gyms across Hyderabad: ${branches
     .map((b) => b.name)
-    .join(", ")}. Compare timings, find the branch nearest you, and book a trial. Membership from Rs 999.`,
-  path: "/gyms",
-  keywords: [
-    "gyms in Hyderabad",
-    "gym near me Hyderabad",
-    "best gym in Hyderabad",
-    "fitness centre Hyderabad",
-    "gym branches Hyderabad",
-  ],
+    .join(", ")}. Compare timings, find the branch nearest you, and book a trial. Pricing is available on request.`,
 });
 
 export default function GymsIndex() {
@@ -76,7 +68,7 @@ export default function GymsIndex() {
             <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-smoke sm:text-xl">
               {business.name} runs {branches.length} branches in {business.city}:{" "}
               {branches.map((b) => b.name).join(", ")}. One membership covers all of
-              them, from Rs 999 a month.
+              them, with pricing available on request.
             </p>
 
             <div className="mt-9">

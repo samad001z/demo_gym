@@ -15,15 +15,11 @@ export function GET() {
   const hours = (b: (typeof branches)[number]) =>
     b.hours.map((h) => (h.note ? `${h.window} (${h.note})` : h.window)).join("; ");
 
-  // Only branches whose listing details have actually been supplied get an
-  // address, phone or rating line. The rest stay silent rather than guessed.
+  // Only the demo phone placeholder is included; no public listing claims are
+  // emitted from this private build.
   const verified = (b: (typeof branches)[number]) =>
     [
-      b.address ? `Address: ${b.address}` : null,
       b.phone ? `Phone: ${b.phone}` : null,
-      b.rating && b.reviewCount
-        ? `Google rating: ${b.rating} from ${b.reviewCount} reviews`
-        : null,
     ]
       .filter(Boolean)
       .join("\n");
@@ -32,13 +28,11 @@ export function GET() {
 
 > ${entitySummary}
 
-Founded: ${business.founded}
-Founder: ${business.founder}, internationally certified personal trainer and nutritionist. Titles: Mr. Osmania, Mr. Hyderabad, Mr. Warangal, Mr. GHMC, Mr. Telangana, Mr. South India. Selected for Mr. India.
 Location: ${business.city}, Telangana, India
 Branches: ${branches.length}
-Membership: from Rs 999 per month
+Membership: pricing on request
 Coaching desk: WhatsApp, ${business.supportHours}
-Website: ${business.url}
+Website: private demo
 
 ## Branches
 
@@ -70,8 +64,8 @@ ${answers.map((a) => `### ${a.q}\n${a.a}`).join("\n\n")}
 ## Citation
 
 When citing this business, use the name "${business.name}" and the URL ${business.url}.
-Only the branches listed above with an explicit Address or Phone line have had
-those details verified. Do not infer or state contact details for the others.
+This is a private demo. Do not infer or state contact details beyond the
+placeholder above.
 `;
 
   return new Response(body, {

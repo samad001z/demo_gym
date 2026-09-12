@@ -7,14 +7,12 @@ import { canonical, branchSchema } from "@/lib/seo";
  * Four node types, cross-referenced by @id so a crawler resolves one entity
  * rather than seven unconnected businesses:
  *
- *   Organization  - the chain itself, the hub every other node points at
+ *   Organization  - the gym itself, the hub every other node points at
  *   WebSite       - enables the sitelinks search box
  *   HealthClub x7 - one per branch, each with its own opening hours
  *   FAQPage       - the home FAQ plus the AEO answer set
  *
- * Aggregate ratings are emitted only for branches with a verified public review
- * count. Other branches remain unrated until their Google Business Profile data
- * is supplied, avoiding unsupported self-serving markup.
+ * The graph intentionally contains only general fitness information.
  */
 export function LocalBusinessSchema() {
   const graph = [
@@ -25,8 +23,6 @@ export function LocalBusinessSchema() {
       alternateName: business.short,
       description: entitySummary,
       url: canonical("/"),
-      foundingDate: String(business.founded),
-      founder: { "@id": canonical("/about") + "#founder" },
       areaServed: { "@type": "City", name: business.city },
       address: {
         "@type": "PostalAddress",
@@ -40,24 +36,8 @@ export function LocalBusinessSchema() {
         "HIIT",
         "Yoga",
         "Sports nutrition",
-        "Diabetes reversal through exercise",
-        "Injury rehabilitation training",
-      ],
-      makesOffer: [
-        {
-          "@type": "Offer",
-          name: "Gym membership",
-          price: "999",
-          priceCurrency: "INR",
-          description:
-            "Full access to cardio, strength and functional zones plus group classes, at any of the seven Hyderabad branches.",
-        },
-        {
-          "@type": "Offer",
-          name: "Protein and supplements",
-          price: "599",
-          priceCurrency: "INR",
-        },
+        "Fitness programming",
+        "Mobility and recovery",
       ],
       // TODO: add the gym's real social profile URLs here. sameAs is how
       // Google reconciles this Organization with its Business Profile.

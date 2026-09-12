@@ -11,8 +11,7 @@ export function Footer() {
           <div className="lg:col-span-5">
             <Wordmark size="lg" />
             <p className="mt-6 max-w-[38ch] text-[15px] leading-relaxed text-smoke">
-              {business.tagline}. Founded {business.founded} by {business.founder}.
-              Seven branches across {business.city}.
+              {business.tagline}. Training, classes and coaching across {business.city}.
             </p>
           </div>
 

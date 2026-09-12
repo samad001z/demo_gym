@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import { business } from "@/lib/content";
-import { canonical, SITE, NOINDEX } from "@/lib/seo";
+import { SITE } from "@/lib/seo";
 
 /**
  * Barlow Condensed for display, Barlow for body. A condensed grotesk is the
@@ -23,9 +23,9 @@ const barlowCondensed = Barlow_Condensed({
   display: "swap",
 });
 
-const title = `Best Gym in Hyderabad | ${business.name} | 7 Branches Since 2011`;
+const title = `${business.name} | Training and fitness in Hyderabad`;
 const description =
-  `${business.name} is one of Hyderabad's longest-running gym chains, open since 2011 across 7 branches. Internationally certified personal training, HIIT, yoga and nutrition. Membership from Rs 999.`;
+  `${business.name} offers strength, cardio, group classes, yoga, nutrition guidance and personal training in Hyderabad.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -35,42 +35,7 @@ export const metadata: Metadata = {
   description,
   applicationName: business.name,
   category: "Health & Fitness",
-  alternates: { canonical: canonical("/") },
-  keywords: [
-    "best gym in Hyderabad",
-    "gym in Hyderabad",
-    "fitness centre Hyderabad",
-    "personal training Hyderabad",
-    "gym near me Hyderabad",
-    "Gachibowli gym",
-    "Kondapur gym",
-    "Begumpet gym",
-    "HIIT classes Hyderabad",
-    "women only gym timings Hyderabad",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "en_IN",
-    url: canonical("/"),
-    siteName: business.name,
-    title,
-    description,
-  },
-  twitter: { card: "summary_large_image", title, description },
-  // Preview deploys are excluded outright; see NOINDEX in lib/seo.
-  robots: NOINDEX
-    ? { index: false, follow: false, nocache: true }
-    : {
-        index: true,
-        follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-          "max-video-preview": -1,
-        },
-      },
+  robots: { index: false, follow: false },
   // TODO: paste the Search Console token here to verify the property.
   // verification: { google: "..." },
 };

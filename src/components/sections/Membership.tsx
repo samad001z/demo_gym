@@ -7,10 +7,7 @@ import { offers, whatsappHref, business } from "@/lib/content";
 /**
  * Two real offers, not an invented tier table.
  *
- * The gym publishes exactly two prices: membership from Rs 999 and protein
- * from Rs 599. Everything else is quoted per person after a consultation, so
- * the section says that plainly and routes to WhatsApp rather than fabricating
- * a four-column pricing matrix the front desk would have to disown.
+ * Pricing stays intentionally general until approved figures are supplied.
  */
 export function Membership() {
   return (
@@ -23,9 +20,8 @@ export function Membership() {
                 What it costs
               </h2></MaskReveal>
               <p className="mt-6 text-lg leading-relaxed text-smoke">
-                Membership starts at Rs 999 a month. Personal training and
-                specialist programmes are quoted after your consultation, because
-                the plan decides the price.
+                Membership and personal training pricing is available on request,
+                because the plan should match your goals and schedule.
               </p>
               <p className="mt-5 text-[15px] leading-relaxed text-ash">
                 Coaching desk on WhatsApp, {business.supportHours}.
@@ -53,8 +49,7 @@ export function Membership() {
                   </p>
 
                   <p className="mt-5 flex items-baseline gap-2">
-                    <span className="display tnum text-6xl text-ember sm:text-7xl">
-                      <span className="mr-1.5 align-top text-3xl sm:text-4xl">Rs</span>
+                      <span className="display text-5xl text-ember sm:text-6xl">
                       {o.price}
                     </span>
                     <span className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-smoke">

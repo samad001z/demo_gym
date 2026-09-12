@@ -18,9 +18,9 @@ export function Wordmark({
         .filter(Boolean)
         .join(" ")}
     >
-      <span className="text-bone">Fitness</span>
+      <span className="text-bone">Your</span>
       <span className="relative text-bone">
-        Edge
+        Gym
         <span
           aria-hidden
           className="absolute -bottom-1 left-0 h-[3px] w-full bg-ember"

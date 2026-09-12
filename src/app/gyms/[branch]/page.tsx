@@ -6,7 +6,6 @@ import {
   ClockIcon,
   MapPinIcon,
   PhoneIcon,
-  StarIcon,
   WhatsappLogoIcon,
   ArrowRightIcon,
   CheckIcon,
@@ -19,7 +18,6 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { MaskReveal } from "@/components/ui/motion-parts";
 import { AnswerBlock } from "@/components/AnswerBlock";
-import { BranchReviews } from "@/components/BranchReviews";
 import { photo, BLUR } from "@/lib/img";
 import { JsonLd, breadcrumbs, branchSchema, pageMeta } from "@/lib/seo";
 import {
@@ -54,15 +52,7 @@ export async function generateMetadata({
     // Title targets the query people actually type, with the differentiator
     // (the hours) doing the work in the description rather than a keyword list.
     title: `Gym in ${branch.name}, Hyderabad`,
-    description: `${business.name} ${branch.name}: open ${hours}. Personal training, HIIT, yoga and strength coaching from internationally certified trainers. Membership from Rs 999. ${branch.standout}`,
-    path: `/gyms/${branch.slug}`,
-    keywords: [
-      `gym in ${branch.name}`,
-      `gym near ${branch.name} Hyderabad`,
-      `best gym in ${branch.name}`,
-      `personal trainer ${branch.name}`,
-      `fitness centre ${branch.name} Hyderabad`,
-    ],
+    description: `${business.name} ${branch.name}: open ${hours}. Personal training, HIIT, yoga and strength coaching built around your current fitness level. ${branch.standout}`,
   });
 }
 
@@ -174,27 +164,11 @@ export default async function BranchPage({
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-smoke">
-                {branch.rating && branch.reviewCount && (
-                  <a
-                    href={branch.googleMapsUrl ?? `https://www.google.com/maps/search/${encodeURIComponent(`${business.name} ${branch.name} ${business.city}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-ember transition-colors hover:text-ember-lift"
-                    aria-label={`${branch.rating} out of 5 from ${branch.reviewCount} Google reviews for ${branch.name}`}
-                  >
-                    <StarIcon size={17} weight="fill" aria-hidden />
-                    <span className="tnum font-display text-lg font-semibold">{branch.rating}</span>
-                    <span className="text-smoke underline decoration-seam-2 underline-offset-4">{branch.reviewCount} Google reviews</span>
-                  </a>
-                )}
                 {branch.phone && (
-                  <a
-                    href={`tel:${branch.phone.replace(/[^\d+]/g, "")}`}
-                    className="flex items-center gap-2 transition-colors hover:text-ember"
-                  >
+                  <span className="flex items-center gap-2">
                     <PhoneIcon size={16} className="text-ember" aria-hidden />
                     <span className="tnum">{branch.phone}</span>
-                  </a>
+                  </span>
                 )}
               </div>
               {branch.address && (
@@ -218,7 +192,7 @@ export default async function BranchPage({
                 Book a trial
               </ButtonLink>
               <ButtonLink
-                href={branch.googleMapsUrl ?? `https://www.google.com/maps/search/${encodeURIComponent(
+                href={`https://www.google.com/maps/search/${encodeURIComponent(
                   branch.address ?? `${business.name} ${branch.name} ${business.city}`,
                 )}`}
                 external
@@ -312,16 +286,6 @@ export default async function BranchPage({
             </div>
           </div>
         </section>
-
-        {branch.reviewExcerpts?.length ? (
-          <BranchReviews
-            branchName={branch.name}
-            excerpts={branch.reviewExcerpts}
-            rating={branch.rating}
-            reviewCount={branch.reviewCount}
-            mapsUrl={branch.googleMapsUrl}
-          />
-        ) : null}
 
         <Ticker />
 
